@@ -13,19 +13,19 @@ export default [
         file: 'dist/index.js',
         format: 'cjs',
         sourcemap: true,
-        exports: 'default'
+        exports: 'default',
       },
       {
         file: 'dist/index.esm.js',
         format: 'esm',
         sourcemap: true,
-        exports: 'default'
+        exports: 'default',
       },
     ],
     plugins: [
       peerDepsExternal(),
       resolve({
-        extensions: ['.js', '.jsx', '.ts', '.tsx']
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
       }),
       commonjs(),
       postcss({
@@ -33,13 +33,13 @@ export default [
         extract: false,
         inject: true,
         minimize: true,
-        autoModules: true
+        autoModules: true,
       }),
       typescript({
         tsconfig: './tsconfig.json',
         exclude: ['**/__tests__/**'],
         declaration: true,
-        declarationDir: 'dist'
+        declarationDir: 'dist',
       }),
     ],
     external: ['react', 'react-dom'],

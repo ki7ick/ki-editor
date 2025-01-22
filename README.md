@@ -35,11 +35,6 @@ pnpm build
 import { Editor } from '@ki-editor/core';
 
 function App() {
-  return (
-    <Editor
-      value="初始内容"
-      onChange={(value) => console.log(value)}
-    />
-  );
+  return <Editor value="初始内容" onChange={value => console.log(value)} />;
 }
 ```
