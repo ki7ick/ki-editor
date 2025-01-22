@@ -12,21 +12,21 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourusername/ki-editor.git"
+    "url": "git+https://github.com/ki7ick/ki-editor.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/ki-editor/issues"
+    "url": "https://github.com/ki7ick/ki-editor/issues"
   },
-  "homepage": "https://github.com/yourusername/ki-editor#readme",
+  "homepage": "https://github.com/ki7ick/ki-editor#readme",
+  "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
       "import": "./dist/index.esm.js",
       "require": "./dist/index.js",
-      "default": "./dist/index.js"
+      "types": "./dist/index.d.ts"
     },
     "./types": {
       "types": "./dist/types.d.ts"
@@ -42,6 +42,7 @@
   "scripts": {
     "dev": "rollup -c -w",
     "build": "rollup -c",
+    "watch": "rollup -c -w",
     "lint": "eslint src/",
     "clean": "rimraf dist",
     "prebuild": "pnpm clean",

@@ -3,14 +3,16 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "pnpm -r dev",
-    "build": "pnpm -r build",
+    "dev": "concurrently \"pnpm --filter demo dev\" \"pnpm --filter ki-editor watch\"",
+    "build": "pnpm --filter ki-editor build",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "pnpm -r lint"
   },
   "devDependencies": {
     "@types/node": "^20.11.0",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "concurrently": "^8.2.2"
   }
 }

@@ -13,16 +13,20 @@ export default [
         file: 'dist/index.js',
         format: 'cjs',
         sourcemap: true,
+        exports: 'default'
       },
       {
         file: 'dist/index.esm.js',
         format: 'esm',
         sourcemap: true,
+        exports: 'default'
       },
     ],
     plugins: [
       peerDepsExternal(),
-      resolve(),
+      resolve({
+        extensions: ['.js', '.jsx', '.ts', '.tsx']
+      }),
       commonjs(),
       postcss({
         modules: true,
@@ -34,6 +38,8 @@ export default [
       typescript({
         tsconfig: './tsconfig.json',
         exclude: ['**/__tests__/**'],
+        declaration: true,
+        declarationDir: 'dist'
       }),
     ],
     external: ['react', 'react-dom'],
