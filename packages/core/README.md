@@ -18,21 +18,16 @@ yarn add ki-editor
 import Editor from 'ki-editor';
 
 function App() {
-  return (
-    <Editor
-      value="初始内容"
-      onChange={(value) => console.log(value)}
-    />
-  );
+  return <Editor value="初始内容" onChange={value => console.log(value)} />;
 }
 ```
 
 ## Props
 
-| 属性 | 类型 | 默认值 | 描述 |
-|------|------|--------|------|
-| value | string | '' | 编辑器的初始内容 |
-| onChange | (value: string) => void | - | 内容变化时的回调函数 |
+| 属性     | 类型                    | 默认值 | 描述                 |
+| -------- | ----------------------- | ------ | -------------------- |
+| value    | string                  | ''     | 编辑器的初始内容     |
+| onChange | (value: string) => void | -      | 内容变化时的回调函数 |
 
 ## 开发
 

@@ -14,6 +14,7 @@ const Editor = ({ value = '', onChange, config = {} }: EditorProps) => {
     setContent(newValue);
     onChange?.(newValue);
   };
+  console.log(1);
 
   const editorStyle = {
     width: config.width ?? '100%',
@@ -21,13 +22,11 @@ const Editor = ({ value = '', onChange, config = {} }: EditorProps) => {
   };
 
   return (
-    <div 
+    <div
       className={`${styles.editor} ${config.theme === 'dark' ? styles.dark : ''}`}
       style={editorStyle}
     >
-      {config.toolbar && (
-        <div className={styles.toolbar}>{/* 工具栏将在后续实现 */}</div>
-      )}
+      {config.toolbar && <div className={styles.toolbar}>{/* 工具栏将在后续实现 */}</div>}
       <textarea
         value={content}
         onChange={handleChange}
