@@ -5,7 +5,7 @@ export default {
     '^.+\\.(ts|tsx)$': 'ts-jest',
   },
   moduleNameMapper: {
-    "\\.module\\.css$": "identity-obj-proxy",
-    "\\.css$": "identity-obj-proxy"
-  }
+    '\\.module\\.css$': 'identity-obj-proxy',
+    '\\.css$': 'identity-obj-proxy',
+  },
 };
