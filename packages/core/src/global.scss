@@ -1,6 +1,30 @@
-.editor {
-  border: 1px solid #ddd;
+$prefix: ki-editor;
+
+$color-base: #61646e;
+$bg-base: #fff;
+$border-base: #dedede;
+$bg-wrapper: #ebebeb;
+$bg-wrapper-line: #e9e9e9;
+
+.#{$prefix}-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  border-radius: 6px;
+  min-height: 400px;
+  background-color: $bg-wrapper;
+  background-image: linear-gradient(90deg, $bg-wrapper-line 8%, transparent 8%),
+    linear-gradient($bg-wrapper-line 8%, transparent 8%);
+  background-size: 12px 12px;
+
+  &-content {
+    flex: 1;
+    margin-top: 24px;
+  }
+}
+
+.#{$prefix}-toolbar {
+  border: 1px solid $border-base;
   border-radius: 4px;
-  background: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 32px;
 }

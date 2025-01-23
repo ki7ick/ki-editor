@@ -1,31 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import type { EditorProps } from '../types/editor';
+import React from 'react';
+import Wrapper from './wrapper';
+import ToolBar from './toolbar';
+import Writting from './writting';
+import Viewer from './viewer';
+import useEngine from '../hooks/useEngine';
+import { EditorContext } from '../context';
+import type { EditorProps } from '../types/editor.type';
+import type { EditorContextValue } from '../context';
 
-const Editor = ({ value = '', onChange, config = {} }: EditorProps) => {
-  const [content, setContent] = useState(value);
+export default function Editor({}: EditorProps) {
+  const engine = useEngine();
 
-  useEffect(() => {
-    setContent(value);
-  }, [value]);
-
-  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const newValue = e.target.value;
-    setContent(newValue);
-    onChange?.(newValue);
-  };
-  console.log(1);
-
-  const editorStyle = {
-    width: config.width ?? '100%',
-    height: config.height ?? 300,
+  const value: EditorContextValue = {
+    engine,
   };
 
   return (
-    <div className={`editor`} style={editorStyle}>
-      {config.toolbar && <div>tool</div>}
-      <textarea value={content} onChange={handleChange} placeholder={config.placeholder} />
-    </div>
+    <EditorContext.Provider value={value}>
+      <Wrapper>
+        <ToolBar />
+        <Wrapper.Content>
+          <Writting />
+          <Viewer />
+        </Wrapper.Content>
+      </Wrapper>
+    </EditorContext.Provider>
   );
-};
-
-export default Editor;
+}
