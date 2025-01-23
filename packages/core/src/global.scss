@@ -1,10 +1,13 @@
 $prefix: ki-editor;
 
 $color-base: #61646e;
-$bg-base: #fff;
 $border-base: #dedede;
+$bg-base: #fff;
 $bg-wrapper: #ebebeb;
 $bg-wrapper-line: #e9e9e9;
+$bg-writting: #fff;
+$bg-scrollbar-track: #f5f5f5;
+$bg-scrollbar-thumb: #c2c2c2;
 
 .#{$prefix}-wrapper {
   display: flex;
@@ -19,7 +22,28 @@ $bg-wrapper-line: #e9e9e9;
 
   &-content {
     flex: 1;
-    margin-top: 24px;
+    margin-top: 12px;
+    display: flex;
+    gap: 8px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  // 滚动条细一点
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: $bg-scrollbar-thumb;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: $bg-scrollbar-track;
   }
 }
 
@@ -27,4 +51,25 @@ $bg-wrapper-line: #e9e9e9;
   border: 1px solid $border-base;
   border-radius: 4px;
   height: 32px;
+}
+
+.#{$prefix}-writting {
+  flex: 1;
+  background-color: $bg-writting;
+  border-radius: 4px;
+
+  &-textarea {
+    width: 100%;
+    height: 100%;
+    border: none;
+    resize: none;
+    outline: none;
+  }
+}
+
+.#{$prefix}-viewer {
+  flex: 1;
+  background-color: $bg-writting;
+  border-radius: 4px;
+  border-left: 1px solid $border-base;
 }

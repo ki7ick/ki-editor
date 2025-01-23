@@ -1,10 +1,14 @@
 import React from 'react';
-import { EditorEngine } from './engine';
+import type { EditorEngine } from './engine';
+import type { EditorProps } from './types/editor.type';
 
 export type EditorContextValue = {
   engine: EditorEngine;
+  outerProps: Pick<EditorProps, 'value' | 'onChange'>;
 };
 
-const EditorContext = React.createContext<EditorContextValue>({} as unknown as any);
+const EditorContext = React.createContext<EditorContextValue>(
+  null as unknown as EditorContextValue
+);
 
 export { EditorContext };

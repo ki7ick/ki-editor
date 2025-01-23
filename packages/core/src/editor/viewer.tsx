@@ -1,5 +1,8 @@
 import React from 'react';
+import usePrefix from '../hooks/usePrefix';
 
 export default function Viewer() {
-  return <div>1</div>;
+  const [prefix] = usePrefix('viewer');
+
+  return <div className={prefix}>1</div>;
 }

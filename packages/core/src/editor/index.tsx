@@ -8,15 +8,19 @@ import { EditorContext } from '../context';
 import type { EditorProps } from '../types/editor.type';
 import type { EditorContextValue } from '../context';
 
-export default function Editor({}: EditorProps) {
+export default function Editor({ value, onChange }: EditorProps) {
   const engine = useEngine();
 
-  const value: EditorContextValue = {
+  const contextValue: EditorContextValue = {
     engine,
+    outerProps: {
+      value,
+      onChange,
+    },
   };
 
   return (
-    <EditorContext.Provider value={value}>
+    <EditorContext.Provider value={contextValue}>
       <Wrapper>
         <ToolBar />
         <Wrapper.Content>
