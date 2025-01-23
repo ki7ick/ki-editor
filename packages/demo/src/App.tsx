@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Editor from 'ki-editor';
+import 'ki-editor/index.css';
 
 function App() {
   const [value, setValue] = useState(

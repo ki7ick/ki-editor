@@ -3,7 +3,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import dts from 'rollup-plugin-dts';
-import postcss from 'rollup-plugin-postcss';
+import scss from 'rollup-plugin-scss';
 
 export default [
   {
@@ -28,12 +28,10 @@ export default [
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
       }),
       commonjs(),
-      postcss({
-        modules: true,
-        extract: false,
-        inject: true,
-        minimize: true,
-        autoModules: true,
+      scss({
+        fileName: 'index.css',
+        sourceMap: true,
+        include: ['src/global.scss'],
       }),
       typescript({
         tsconfig: './tsconfig.json',

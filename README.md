@@ -32,7 +32,8 @@ pnpm build
 ## 使用方法
 
 ```tsx
-import { Editor } from '@ki-editor/core';
+import { Editor } from 'ki-editor';
+import 'ki-editor/index.css';
 
 function App() {
   return <Editor value="初始内容" onChange={value => console.log(value)} />;

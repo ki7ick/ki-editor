@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import type { EditorProps } from '../types/editor';
-import styles from './index.module.css';
 
 const Editor = ({ value = '', onChange, config = {} }: EditorProps) => {
   const [content, setContent] = useState(value);
@@ -22,17 +21,9 @@ const Editor = ({ value = '', onChange, config = {} }: EditorProps) => {
   };
 
   return (
-    <div
-      className={`${styles.editor} ${config.theme === 'dark' ? styles.dark : ''}`}
-      style={editorStyle}
-    >
-      {config.toolbar && <div className={styles.toolbar}>{/* 工具栏将在后续实现 */}</div>}
-      <textarea
-        value={content}
-        onChange={handleChange}
-        className={styles.textarea}
-        placeholder={config.placeholder}
-      />
+    <div className={`editor`} style={editorStyle}>
+      {config.toolbar && <div>tool</div>}
+      <textarea value={content} onChange={handleChange} placeholder={config.placeholder} />
     </div>
   );
 };
