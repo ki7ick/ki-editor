@@ -4,6 +4,7 @@ import typescript from '@rollup/plugin-typescript';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import dts from 'rollup-plugin-dts';
 import scss from 'rollup-plugin-scss';
+import sass from 'dart-sass';
 
 export default [
   {
@@ -32,6 +33,7 @@ export default [
         fileName: 'index.css',
         sourceMap: true,
         include: ['src/global.scss'],
+        sass,
       }),
       typescript({
         tsconfig: './tsconfig.json',
